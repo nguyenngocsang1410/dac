@@ -1,0 +1,22 @@
+# Yosys synthesizability check / generic synthesis for the DEMDRZ encoder.
+# Run from the repo root:  yosys -q syn/yosys_synth.ys
+# For a real tapeout flow, replace the generic mapping with your standard
+# cell library (dfflibmap/abc -liberty) or feed the RTL to DC/Genus along
+# with syn/constraints.sdc.
+
+read_verilog rtl/dac_bin2therm.v
+read_verilog rtl/dac_lfsr16.v
+read_verilog rtl/dac_mod7.v
+read_verilog rtl/dac_rotator7.v
+read_verilog rtl/dac_dem_coder.v
+read_verilog rtl/dac_demdrz_top.v
+
+hierarchy -check -top dac_demdrz_top
+
+# Elaborate and check for latches / multiple drivers / undriven nets.
+proc
+check -assert
+
+synth -top dac_demdrz_top
+stat
+check -assert
