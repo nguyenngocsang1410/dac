@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// dac_analog_model.v  -- SIMULATION ONLY, NOT SYNTHESIZABLE
+// dac_analog_ref.v  -- SIMULATION ONLY, NOT SYNTHESIZABLE
 //
 // Behavioral model of the full-custom analog portion of the DAC: the
 // switch-driver / switch / current-source arrays of paper Fig. 5/8. Each
@@ -13,7 +13,7 @@
 // equivalent and must be integrated as a hard macro.
 //-----------------------------------------------------------------------------
 
-module dac_analog_model #(
+module dac_analog_ref #(
     parameter real IFS_MA      = 16.0,  // full-scale load current, mA
     parameter real SIGMA_PCT   = 0.0,   // unit-current mismatch sigma, %
     parameter      MISMATCH_SEED = 1
