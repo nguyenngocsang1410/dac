@@ -1,8 +1,12 @@
 //-----------------------------------------------------------------------------
 // dac_mod7.v
 //
+// Block:  dac_mod7 (PRN-to-rotation reducer, dac_demdrz_top v2)
+// MAS:    docs/arch/dac_demdrz_top_mas.md (§1 file table, §4.1.3)
+//
 // Reduces a 6-bit slice of the PRNG state to a uniform rotation step
-// R in 0..6 for the DEM rotator.
+// R in 0..6 for the DEM rotator (REQ-010: the 64 input values map
+// ceil(64/7)-balanced onto 0..6).
 //
 // Uses the octal digit-sum identity (mod-7 analogue of casting out nines):
 //   val mod 7 = (val[5:3] + val[2:0]) mod 7
@@ -10,6 +14,11 @@
 // conditional subtractions. This is small combinational logic with no
 // division operator, keeping the critical path short for multi-GHz-class
 // encoder clocks.
+//
+// Assumptions: purely combinational; no clock or reset.
+//
+// Revision: v2.0 — functionally unchanged from v1 (MAS §1: "unchanged,
+// combinational"); header updated for the v2 release.
 //-----------------------------------------------------------------------------
 
 module dac_mod7 (

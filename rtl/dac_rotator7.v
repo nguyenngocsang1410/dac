@@ -1,6 +1,9 @@
 //-----------------------------------------------------------------------------
 // dac_rotator7.v
 //
+// Block:  dac_rotator7 (DEM barrel rotator, dac_demdrz_top v2)
+// MAS:    docs/arch/dac_demdrz_top_mas.md (§1 file table, §4.1.3)
+//
 // 7-bit barrel rotator for the DEM coder. Rotates the thermometer code by
 // the random step R (0..6) so that, for the same input code, a different
 // set of unit current cells is selected each sample. This is the
@@ -8,7 +11,14 @@
 // (paper Fig. 3(a)/(c)): therm_out[(i + r) mod 7] = therm_in[i].
 //
 // Implemented as a 7:1 case mux per output bit - pure combinational logic,
-// no latches.
+// no latches. Rotation is value-preserving, so the weighted element sum
+// always equals the input code (REQ-003).
+//
+// Assumptions: r is registered upstream (r_q in dac_dem_coder); r = 7 is
+// never driven by the mod-7 reducer and is treated as 0.
+//
+// Revision: v2.0 — functionally unchanged from v1 (MAS §1: "unchanged,
+// combinational"); header updated for the v2 release.
 //-----------------------------------------------------------------------------
 
 module dac_rotator7 (
