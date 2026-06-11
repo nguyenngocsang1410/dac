@@ -85,7 +85,7 @@ module dac_demdrz_top #(
     localparam [15:0] SEED_ULSB_EFF = (SEED_ULSB != 16'h0000) ? SEED_ULSB : 16'h5EED;
     localparam [15:0] SEED_LSB_EFF  = (SEED_LSB  != 16'h0000) ? SEED_LSB  : 16'hB10D;
 
-    // Seed address map (MAS §4.1.3 decode; 2'b11 reserved).
+    // Seed address map (MAS §4.1.4 decode; 2'b11 reserved).
     localparam [1:0] SEED_ADDR_MSB  = 2'b00;
     localparam [1:0] SEED_ADDR_ULSB = 2'b01;
     localparam [1:0] SEED_ADDR_LSB  = 2'b10;

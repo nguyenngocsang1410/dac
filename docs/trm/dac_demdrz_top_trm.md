@@ -1,7 +1,7 @@
 # dac_demdrz_top — Technical Reference Manual
 | Block | Version | Date | Status | Source RTL |
 |---|---|---|---|---|
-| dac_demdrz_top | 2.0 | 2026-06-11 | DRAFT (pending design review) | `rtl/dac_demdrz_top.v` + `rtl/dac_dem_coder.v`, `rtl/dac_lfsr16.v`, `rtl/dac_bin2therm.v`, `rtl/dac_rotator7.v`, `rtl/dac_mod7.v` @ git `c5a6ebd07eb96b1ca0c32d18f9e6a730c021fca7` (branch `claude/rtl-dac-design-9jtrdt`) |
+| dac_demdrz_top | 2.0 | 2026-06-11 | RELEASED | `rtl/dac_demdrz_top.v` + `rtl/dac_dem_coder.v`, `rtl/dac_lfsr16.v`, `rtl/dac_bin2therm.v`, `rtl/dac_rotator7.v`, `rtl/dac_mod7.v` @ git `c5a6ebd07eb96b1ca0c32d18f9e6a730c021fca7` (branch `claude/rtl-dac-design-9jtrdt`) |
 
 This manual documents the design **as built** in the RTL listed above. PRD: `docs/prd/dac_demdrz_top_prd.md`. MAS: `docs/arch/dac_demdrz_top_mas.md`. All behavior marked "verified" refers to the passing regression in `verif/results/dac_demdrz_top_sim.log` (20 directed tests, 39,901 checked cycles, `ALL TESTS PASSED`) against the test plan `verif/plans/dac_demdrz_top_testplan.md`.
 
@@ -273,5 +273,5 @@ All cases below are specified in MAS §5 and verified by the listed tests (`veri
 6. **Zero seed parameters are silently substituted**, not rejected: Verilog-2001 has no portable elaboration-time `$error` (MAS decision D4). An integration that overrides a seed to `16'h0000` gets the v1 default for that segment with no warning.
 7. **fmax is not characterized** (PRD A8: no numeric target; the paper's reference point is 3.2 GHz clk for 1.6 GS/s, technology-dependent). Not a verification gate.
 8. **REQ-020 ("no combinational path `sw_*` → `sw_*_n` at the boundary") is verified by simulation plus analysis only** — same-edge dual-rail updates and the off-edge-change monitor (CHK-08) in simulation, plus RTL review of the separate `_n` flops and the clean lint run. It is not provable by black-box simulation (test plan §4 escalation).
-9. **Design review report (D8) is not yet issued** at the time of writing; this document is DRAFT until that review completes. No verification escalations beyond items 7–8 were raised (test plan §4).
+9. **Design review (D8) complete:** `docs/reviews/dac_demdrz_top_review.md`, verdict **APPROVED-WITH-WAIVERS** — 0 CRITICAL, 1 MAJOR, 6 MINOR findings. The single MAJOR finding (F-001, stale v1-era synthesis constraints in `syn/constraints.sdc`) was resolved by regenerating the SDC for the v2 port list at release. No verification escalations beyond items 7–8 were raised (test plan §4).
 10. **Analog scope:** switch drivers, current cells, cascodes, biasing, and element matching are outside this block; the RTL guarantees only the digital switch-control values and their timing.

@@ -1,7 +1,7 @@
 # dac_demdrz_top — Integration & User Guide
 | Block | Version | Date | Status | Source RTL |
 |---|---|---|---|---|
-| dac_demdrz_top | 2.0 | 2026-06-11 | DRAFT (pending design review) | `rtl/dac_demdrz_top.v` + `rtl/dac_dem_coder.v`, `rtl/dac_lfsr16.v`, `rtl/dac_bin2therm.v`, `rtl/dac_rotator7.v`, `rtl/dac_mod7.v` @ git `c5a6ebd07eb96b1ca0c32d18f9e6a730c021fca7` (branch `claude/rtl-dac-design-9jtrdt`) |
+| dac_demdrz_top | 2.0 | 2026-06-11 | RELEASED | `rtl/dac_demdrz_top.v` + `rtl/dac_dem_coder.v`, `rtl/dac_lfsr16.v`, `rtl/dac_bin2therm.v`, `rtl/dac_rotator7.v`, `rtl/dac_mod7.v` @ git `c5a6ebd07eb96b1ca0c32d18f9e6a730c021fca7` (branch `claude/rtl-dac-design-9jtrdt`) |
 
 Companion document: the Technical Reference Manual, `docs/trm/dac_demdrz_top_trm.md` (full port/parameter tables, theory of operation, corner cases).
 

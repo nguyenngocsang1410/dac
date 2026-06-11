@@ -1,7 +1,7 @@
 # dac_demdrz_top (v2) — Microarchitecture Specification
 | Block | Version | Date | Status | PRD ref |
 |---|---|---|---|---|
-| dac_demdrz_top | 2.0 | 2026-06-11 | DRAFT | docs/prd/dac_demdrz_top_prd.md |
+| dac_demdrz_top | 2.0 | 2026-06-11 | APPROVED | docs/prd/dac_demdrz_top_prd.md |
 
 ## 1. Overview & Block Diagram
 
@@ -89,7 +89,7 @@ parameter. The "reset-default parameter seed" referenced everywhere below means
 the **effective** seed `SEED_*_EFF`.
 
 Other constants (`localparam`, not overridable): `DRZ_MSB = 7'b1010101`,
-`DRZ_LOW = 7'b0000000`; seed address map values (§4.1.3); LFSR polynomial
+`DRZ_LOW = 7'b0000000`; seed address map values (§4.1.4); LFSR polynomial
 x^16 + x^14 + x^13 + x^11 + 1 (unchanged from v1).
 
 ### 2.2 Ports
