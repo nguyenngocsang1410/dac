@@ -1,0 +1,45 @@
+VCD info: dumpfile build/dac_demdrz_top.vcd opened for output.
+[T-020] start (t=0)
+[T-020] PASS
+[T-001] start (t=0)
+[T-001] PASS
+[T-002] start (t=62000)
+[T-002] PASS
+[T-003] start (t=142001000)
+[T-003] PASS
+[T-004] start (t=182011000)
+[T-004] PASS
+[T-005] start (t=222041000)
+[T-005] PASS
+[T-006] start (t=242051000)
+[T-006] PASS
+[T-007] start (t=242382000)
+[T-007] PASS
+[T-008] start (t=248521000)
+[T-008] PASS
+[T-009] start (t=248752000)
+[T-009] PASS
+[T-010] start (t=249171000)
+[T-010] PASS
+[T-011] start (t=249601000)
+[T-011] PASS
+[T-012] start (t=249831000)
+[T-012] PASS
+[T-013] start (t=249951000)
+[T-013] PASS
+[T-014] start (t=254081000)
+[T-014] PASS
+[T-015] start (t=254221000)
+[T-015] PASS
+[T-016] start (t=256511000)
+[T-016] PASS
+[T-017] start (t=258061000)
+[T-017] PASS
+[T-018] start (t=258771000)
+[T-018] R samples per segment: 14000 (bound 1700..2300 per bin)
+[T-018] PASS
+[T-019] start (t=398781000)
+[T-019] PASS
+[TB] directed tests: 20, cycles checked: 39901, captures: 30351, signal-phase sum checks: 30352
+ALL TESTS PASSED
+tb/dac_demdrz_top_tb.v:1075: $finish called at 399031000 (1ps)

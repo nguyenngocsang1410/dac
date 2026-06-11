@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(verilator --lint-only*)",
+      "Bash(iverilog*)",
+      "Bash(vvp*)",
+      "Bash(mkdir*)",
+      "Bash(tee*)",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep"
+    ],
+    "deny": [
+      "Bash(rm -rf*)"
+    ]
+  }
+}
